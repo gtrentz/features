@@ -7,6 +7,7 @@ package features;
 
 import features.Classes.User;
 import features.info.*;
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,10 +34,10 @@ public class App {
         try {
             BufferedReader br = new BufferedReader(
                     new FileReader("C:\\Users\\terra\\features\\app\\src\\main\\java\\features\\info\\users.txt"));
-            p = br.readLine();
+            p = BoundedLineReader.readLine(br, 5_000_000);
             while (p != null) {
                 prev.add(p);
-                p = br.readLine();
+                p = BoundedLineReader.readLine(br, 5_000_000);
             }
             br.close();
             System.out.println(p);
