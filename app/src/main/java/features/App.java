@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.file.Files;
 import java.util.ArrayList;
 
 public class App {
@@ -47,8 +48,7 @@ public class App {
         // Add new line
         String a = "";
         try {
-            BufferedWriter b = new BufferedWriter(
-                    new FileWriter("C:\\Users\\terra\\features\\app\\src\\main\\java\\features\\info\\users.txt"));
+            BufferedWriter b = Files.newBufferedWriter("C:\\Users\\terra\\features\\app\\src\\main\\java\\features\\info\\users.txt".toPath());
             for (int i = 0; i < prev.size(); i++) {
                 a += prev.get(i) + "\n";
             }
